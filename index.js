@@ -16,7 +16,7 @@ function range(val) {
 program
   .version('0.0.1')
   .usage('test')
-  .option('-a, --add <key>,<value>','Save text to copycat repository',range)
+  .option('-a, --add <key>,<value>','Save text to copyct repository',range)
   .option('-g, --get <key>','Copy corresponding text to clipboard',range)
   .parse(process.argv);
 
@@ -30,7 +30,7 @@ program
     }
     if(value){
       storage.setItem(key,value);
-      console.log("Key Value pair saved")
+      console.log(key + " saved!")
     }else{
       console.log("Value is Missing")
     }
@@ -40,7 +40,7 @@ program
     var value = storage.getItem(key)
     if(value){
       ncp.copy(value, function () {
-      console.log("Contents of System clipboard replaced")
+      console.log("Contents of the system clipboard replaced by " + key)
       })
     } else{
     console.log("That key does not exist!")

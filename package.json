@@ -1,7 +1,7 @@
 {
   "name": "copycat",
   "version": "1.0.0",
-  "description": "\"Command Line Utility to save multiple items in the clipboard\"",
+  "description": "Command Line Utility to save multiple items in the clipboard",
   "main": "index.js",
   "scripts": {
     "test": "test"
