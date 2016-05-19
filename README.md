@@ -15,7 +15,7 @@ Usage
 ------
 Using CopyCat is super simple! You basically use it as a key value store. Here are a few examples:
 
-```bash
+```shell
 //Adding a Key-Value pair to CopyCat
 
 $copycat -a "Comeback","That's what she said!"
@@ -27,6 +27,7 @@ HackerNews saved!
 
 //Retrieving the Value from CopyCat
 //This will copy "That's what she said!" to your clipboard
+
 $copycat -g "Comeback"
 Contents of the system clipboard replaced by Comeback
 ```
