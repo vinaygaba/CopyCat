@@ -3,7 +3,7 @@
 
 ![Feature Image](images/copycat.png)
 
-Have you every wanted to have multiple items in your clipboard? Some links that you wanted to keep handy? Messages/Email templates that you use a lot ? CopyCat makes all of this possible with the convenience of your Command Line :computer:
+Have you ever wanted to have multiple items in your clipboard? Some links that you wanted to keep handy? Messages/Email templates that you use a lot ? CopyCat makes all of this possible with the convenience of your Command Line :computer:
 
 
 Setup
