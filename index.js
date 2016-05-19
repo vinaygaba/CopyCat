@@ -1,6 +1,13 @@
 #!/usr/bin/env node
 'use strict';
 const program = require('commander');
+var storage = require('node-persist');
+var ncp = require("copy-paste");
+
+//you must first call storage.init or storage.initSync
+storage.initSync();
+
+
 
 let copyCatFunctions = (key,text) => {
   //some code here
@@ -37,15 +44,18 @@ program
   })*/
 
   if(program.add){
-    console.log("Key " + program.add[0])
-    console.log("Value " + program.add[1])
-
     var key = program.add[0]
     var value = program.add[1]
-    
+
+    storage.setItem(key,value);
+    console.log("Saved")
+
   }else if(program.get){
-    console.log("Key " + program.get[0])
     var key =  program.get[0];
+    var value = storage.getItem(key)
+    ncp.copy(value, function () {
+      console.log("Contents of System clipboard replaced")
+    })
   }
 
 // if program was called with no arguments, show help.
