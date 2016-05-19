@@ -1,0 +1,28 @@
+{
+  "name": "copycat",
+  "version": "1.0.0",
+  "description": "\"Command Line Utility to save multiple items in the clipboard\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vinaygaba/CopyCat.git"
+  },
+  "bin": {
+    "copycat": "index.js"
+  },
+  "keywords": [
+    "copycat"
+  ],
+  "dependencies": {
+    "commander": "^2.9.0"
+  },
+  "author": "Vinay Gaba",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/vinaygaba/CopyCat/issues"
+  },
+  "homepage": "https://github.com/vinaygaba/CopyCat#readme"
+}
