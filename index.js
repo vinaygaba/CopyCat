@@ -4,58 +4,47 @@ const program = require('commander');
 var storage = require('node-persist');
 var ncp = require("copy-paste");
 
-//you must first call storage.init or storage.initSync
+//Initializing Local Storage
 storage.initSync();
 
-
-
-let copyCatFunctions = (key,text) => {
-  //some code here
-  console.log(text)
-  if (typeof text === 'undefined') {
-    console.log("Value was not passed");
-  } else{
-    console.log("Value was also passed");
-  }
-}
-
+//Function to split key value pair passed as arguments
 function range(val) {
   return val.split(',').map(String);
 }
 
-
+//Parse commands passed to copycat
 program
   .version('0.0.1')
   .usage('test')
-  .option('-a, --add <a>,<b>','Save text to copycat repository',range)
+  .option('-a, --add <key>,<value>','Save text to copycat repository',range)
   .option('-g, --get <key>','Copy corresponding text to clipboard',range)
   .parse(process.argv);
-  //.command('<key>', 'Copy corresponding text to clipboard')
-  //.command('<key> <value>', 'Save text to copycat repository')
-  /*.action(function (key, value, options) {
-  console.log("Key " +key)
-  console.log("Value " +value.add)
-  console.log("Option " +options)
-  /*  if (value == null) {
-      console.log("Value was not passed");
-    } else{
-      console.log("Value was also passed");
-    }
-  })*/
 
+
+  //Logic to detect if user is trying to save key value pair
   if(program.add){
     var key = program.add[0]
     var value = program.add[1]
-
-    storage.setItem(key,value);
-    console.log("Saved")
-
+    if(!key){
+      program.help();
+    }
+    if(value){
+      storage.setItem(key,value);
+      console.log("Key Value pair saved")
+    }else{
+      console.log("Value is Missing")
+    }
   }else if(program.get){
+    //Logic to detect whether user is trying to replace the clipboard
     var key =  program.get[0];
     var value = storage.getItem(key)
-    ncp.copy(value, function () {
+    if(value){
+      ncp.copy(value, function () {
       console.log("Contents of System clipboard replaced")
-    })
+      })
+    } else{
+    console.log("That key does not exist!")
+    }
   }
 
 // if program was called with no arguments, show help.
