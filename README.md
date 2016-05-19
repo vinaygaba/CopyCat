@@ -16,6 +16,9 @@ Usage
 Using CopyCat is super simple! You basically use it as a key value store. Here are a few examples:
 
 ```shell
+-a, --add  <Key>,<Value>   Add a key value pair
+-g, --get  <Key>           Retrieve a key
+
 //Adding a Key-Value pair to CopyCat
 
 $copycat -a "Comeback","That's what she said!"
