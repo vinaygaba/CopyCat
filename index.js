@@ -3,9 +3,14 @@
 const program = require('commander');
 var storage = require('node-persist');
 var ncp = require("copy-paste");
-
+var path = require("path");
+var os = require("os");
+var root = (os.platform == "win32") ? process.cwd().split(path.sep)[0] : "/usr/"
+console.log(root)
 //Initializing Local Storage
-storage.initSync();
+storage.initSync({
+  dir:root
+});
 
 //Function to split key value pair passed as arguments
 function range(val) {
